@@ -14,11 +14,12 @@ namespace SistemaInventario.AccesoDatos.Repositorio
         public UnidadTrabajo(ApplicationDbContext db)
         {
             _db = db;
-            Bodega = new BodegaRepositorio(_db);//Inicializamos
+            Bodega = new BodegaRepositorio(_db); // Inicializamos
 
         }
 
-        public void Guardar() {
+        public void Guardar()
+        {
             _db.SaveChanges();
         }
 

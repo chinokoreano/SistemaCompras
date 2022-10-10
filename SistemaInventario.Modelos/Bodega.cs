@@ -7,6 +7,7 @@ namespace SistemaInventario.Modelos
 {
     public class Bodega
     {
+      
         [Key]
         public int Id { get; set; }
 
@@ -17,10 +18,12 @@ namespace SistemaInventario.Modelos
 
         [Required]
         [MaxLength(100)]
-        [Display(Name = "Descripcion")]
+        [Display(Name ="Descripcion")]
         public string Descripcion { get; set; }
-        
+
         [Required]
         public bool Estado { get; set; }
+
+
     }
 }

@@ -8,7 +8,6 @@ namespace SistemaInventario.AccesoDatos.Repositorio.IRepositorio
     {
         IBodegaRepositorio Bodega { get; }
 
+        void Guardar();
     }
-
-
 }

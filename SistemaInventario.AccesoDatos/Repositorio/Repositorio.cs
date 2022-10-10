@@ -11,6 +11,7 @@ namespace SistemaInventario.AccesoDatos.Repositorio
 {
     public class Repositorio<T> : IRepositorio<T> where T : class
     {
+
         private readonly ApplicationDbContext _db;
         internal DbSet<T> dbSet;
 
@@ -19,24 +20,26 @@ namespace SistemaInventario.AccesoDatos.Repositorio
             _db = db;
             this.dbSet = _db.Set<T>();
         }
-        
+
+
         public void Agregar(T entidad)
         {
-            dbSet.Add(entidad);//insert into Table
+            dbSet.Add(entidad);      // insert into  Table
         }
 
         public T Obtener(int id)
         {
-            return dbSet.Find(id);
+            return dbSet.Find(id);    // select * from 
         }
 
         public T ObtenerPrimero(Expression<Func<T, bool>> filter = null, string incluirPropiedades = null)
         {
+
             IQueryable<T> query = dbSet;
 
             if (filter != null)
             {
-                query = query.Where(filter);//select * from where
+                query = query.Where(filter);   // select * from where ...
             }
 
             if (incluirPropiedades != null)
@@ -46,21 +49,23 @@ namespace SistemaInventario.AccesoDatos.Repositorio
                     query = query.Include(incluirProp);
                 }
             }
+
             return query.FirstOrDefault();
+
         }
 
         public IEnumerable<T> ObtenerTodos(Expression<Func<T, bool>> filter = null, Func<IQueryable<T>, IOrderedQueryable<T>> orderBy = null, string incluirPropiedades = null)
         {
             IQueryable<T> query = dbSet;
 
-            if (filter != null)
+            if(filter != null)
             {
-                query = query.Where(filter);//select * from where
+                query = query.Where(filter);   // select * from where ...
             }
 
-            if (incluirPropiedades != null)
+            if(incluirPropiedades != null)
             {
-                foreach (var incluirProp in incluirPropiedades.Split(new char[] {','}, StringSplitOptions.RemoveEmptyEntries))
+                foreach(var incluirProp in incluirPropiedades.Split(new char[] { ','}, StringSplitOptions.RemoveEmptyEntries))
                 {
                     query = query.Include(incluirProp);
                 }
@@ -70,7 +75,9 @@ namespace SistemaInventario.AccesoDatos.Repositorio
             {
                 return orderBy(query).ToList();
             }
+
             return query.ToList();
+
         }
 
         public void Remover(int id)
@@ -81,7 +88,7 @@ namespace SistemaInventario.AccesoDatos.Repositorio
 
         public void Remover(T entidad)
         {
-            dbSet.Remove(entidad);//delete from
+            dbSet.Remove(entidad);    // delete from 
         }
 
         public void RemoverRango(IEnumerable<T> entidad)

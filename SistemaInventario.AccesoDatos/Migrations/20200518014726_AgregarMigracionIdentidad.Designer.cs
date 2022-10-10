@@ -10,14 +10,14 @@ using SistemaInventario.AccesoDatos.Data;
 namespace SistemaInventario.AccesoDatos.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20220920011326_AgregarMigrationIdentidad")]
-    partial class AgregarMigrationIdentidad
+    [Migration("20200518014726_AgregarMigracionIdentidad")]
+    partial class AgregarMigracionIdentidad
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "3.1.11")
+                .HasAnnotation("ProductVersion", "3.1.4")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 

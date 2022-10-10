@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace SistemaInventario.AccesoDatos.Migrations
 {
-    public partial class AgregarMigrationIdentidad : Migration
+    public partial class AgregarMigracionIdentidad : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

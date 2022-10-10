@@ -2,7 +2,7 @@
 
 namespace SistemaInventario.AccesoDatos.Migrations
 {
-    public partial class AgregarBodegasaDB : Migration
+    public partial class AgregarBodegaaBD : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

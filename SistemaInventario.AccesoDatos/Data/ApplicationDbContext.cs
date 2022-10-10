@@ -1,9 +1,9 @@
-﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore;
-using SistemaInventario.Modelos;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
+using SistemaInventario.Modelos;
 
 namespace SistemaInventario.AccesoDatos.Data
 {
@@ -15,5 +15,6 @@ namespace SistemaInventario.AccesoDatos.Data
         }
 
         public DbSet<Bodega> Bodegas { get; set; }
+
     }
 }

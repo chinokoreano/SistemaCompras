@@ -8,10 +8,10 @@ using System.Text;
 
 namespace SistemaInventario.AccesoDatos.Repositorio
 {
-    public class BodegaRepositorio:Repositorio<Bodega>,IBodegaRepositorio
+    public class BodegaRepositorio : Repositorio<Bodega>, IBodegaRepositorio
     {
         private readonly ApplicationDbContext _db;
-
+        
         public BodegaRepositorio(ApplicationDbContext db) :base(db)
         {
             _db = db;
@@ -20,13 +20,15 @@ namespace SistemaInventario.AccesoDatos.Repositorio
         public void Actualizar(Bodega bodega)
         {
             var bodegaDb = _db.Bodegas.FirstOrDefault(b => b.Id == bodega.Id);
-            if (bodegaDb!= null)
+            if (bodegaDb !=null)
             {
                 bodegaDb.Nombre = bodega.Nombre;
                 bodegaDb.Descripcion = bodega.Descripcion;
                 bodegaDb.Estado = bodega.Estado;
-                _db.SaveChanges();
+
+                
             }
         }
+
     }
 }
